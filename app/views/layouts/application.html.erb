@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rails</title>
+  <title>Rails <%= params[:action] %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
+<% if params[:controller] == 'welcome' and params[:action] == 'index' %>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<% else %>
 <body>
+<% end %>
 
 <%= yield %>
 
